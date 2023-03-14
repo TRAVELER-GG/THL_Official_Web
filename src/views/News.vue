@@ -29,7 +29,7 @@
             <div class="item-list-more">
               <router-link
                 class="text-decoration"
-                :to="{ name: 'newsdetails', params: { id: item.Id }}"
+                :to="{ name: 'newsdetails', params: { id: item.ID }}"
               >
                 <img src="../assets/img/sanjiao.png" />
                 <span>more</span>
@@ -44,6 +44,7 @@
 
 <script>
 import Banner from "../components/Banner";
+import {Get_News_List} from "../api/webApi.js";
 export default {
   name: "news",
   components: {
@@ -73,13 +74,20 @@ export default {
     }
   },
   mounted() {
-    this.loadData();
+    // this.loadData();
+	
+	Get_News_List({pageindex:1}).then(res=>{
+		console.log(res);
+		this.newsList = res.Data
+		this.loading = false;
+	})
+	
   },
   watch: {
-    newstype(type) {
-      window.console.log(type);
-      this.loadData();
-    }
+    // newstype(type) {
+    //   window.console.log(type);
+    //   this.loadData();
+    // }
   }
 };
 </script>

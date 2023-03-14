@@ -1,25 +1,24 @@
 <template>
   <div id="app">
     <el-container>
-      <!-- <el-header style="position: sticky; top:0px; z-index: 999; background:#fff"> -->
-      <el-header style="position: sticky; top:0px; z-index: 999; background:#fff">
-        <div class="logo">
-          <img src="./assets/img/toplogo1.jpg" alt/>
-        </div>
-        <el-menu
-          :default-active="defaultActive"
-          class="el-menu-demo"
-          mode="horizontal"
-          @select="handleSelect"
-          :router="router">
-          <el-menu-item index="/">首页</el-menu-item>
-          <el-menu-item index="/news">新闻资讯</el-menu-item>
-          <el-menu-item index="/product">产品中心</el-menu-item>
-          <el-menu-item index="/case">经典案例</el-menu-item>
-          <el-menu-item index="/goin">走进唐汉隆</el-menu-item>
-          <!-- <el-menu-item index="/download">下载APP</el-menu-item> -->
-        </el-menu>
-      </el-header>
+	  <el-header>
+	    <div class="logo">
+	      <img src="./assets/img/toplogo1.jpg" alt/>
+	    </div>
+	    <el-menu
+	      :default-active="defaultActive"
+	      class="el-menu-demo"
+	      mode="horizontal"
+	      @select="handleSelect"
+	      :router="router">
+	      <el-menu-item index="/">首页</el-menu-item>
+	      <el-menu-item index="/news">新闻资讯</el-menu-item>
+	      <el-menu-item index="/product">产品中心</el-menu-item>
+	      <el-menu-item index="/case">经典案例</el-menu-item>
+	      <el-menu-item index="/goin">走进唐汉隆</el-menu-item>
+	      <!-- <el-menu-item index="/download">下载APP</el-menu-item> -->
+	    </el-menu>
+	  </el-header>
       <el-main>
         <router-view />
       </el-main>

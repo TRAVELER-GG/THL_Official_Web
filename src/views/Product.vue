@@ -2,14 +2,14 @@
   <div class="product">
     <banner img="../assets/img/bgtop.jpg" title="产品中心" />
     <div class="product-content" v-loading="loading">
-      <div class="p-video">
+      <!-- <div class="p-video">
         <video-player
           class="video-player vjs-custom-skin"
           ref="videoPlayer"
           :playsinline="true"
           :options="playerOptions"
         ></video-player>
-      </div>
+      </div> -->
       <div class="lacking">
         <h3 class="title">传统管理模式不足</h3>
         <div class="lacking-bottom">
