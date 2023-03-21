@@ -4,20 +4,7 @@
     <div class="news-section" v-loading="loading">
       <div class="news-section-content">
         <div class="content-nav">
-          <div
-            class="content-nav-btn"
-            :class="{'content-nav-active':newstype == 1}"
-            @click="newstype = 1"
-          >
-            <span>公司新闻</span>
-          </div>
-          <div
-            class="content-nav-btn"
-            :class="{'content-nav-active':newstype == 2}"
-            @click="newstype = 2 "
-          >
-            <span>行业动态</span>
-          </div>
+          
         </div>
 
         <div class="content-nav-item">
@@ -29,8 +16,7 @@
             <div class="item-list-more">
               <router-link
                 class="text-decoration"
-                :to="{ name: 'newsdetails', params: { id: item.ID }}"
-              >
+                :to="{ name: 'newsdetails', params: { id: item.ID }}">
                 <img src="../assets/img/sanjiao.png" />
                 <span>more</span>
               </router-link>
@@ -75,7 +61,7 @@ export default {
   },
   mounted() {
     // this.loadData();
-	
+	this.loading = true;
 	Get_News_List({pageindex:1}).then(res=>{
 		console.log(res);
 		this.newsList = res.Data
@@ -109,11 +95,11 @@ export default {
     //height: 1600px;
 
     &-content {
-      width: 1240px;
+      width: 1200px;
       //height: 1600px;
       margin: 0 auto;
       background-color: #fff;
-      border: 1px solid red;
+      // border: 1px solid red;
 
       .content-nav {
         width: 400px;
@@ -124,7 +110,7 @@ export default {
         align-items: center;
         position: relative;
         bottom: 30px;
-        border: 1px solid red;
+        // border: 1px solid red;
 
         &-btn {
           width: 50%;

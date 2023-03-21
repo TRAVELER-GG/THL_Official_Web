@@ -131,7 +131,7 @@ export default {
   mounted() {
 	setTimeout(()=>{
 		this.show = !this.show
-	},1000);
+	},800);
 	  
     this.$http
       .all([

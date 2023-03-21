@@ -1,6 +1,6 @@
 <template>
   <div class="go-in">
-    <banner img="../assets/img/bgtop.jpg" title="走进科建" />
+    <banner img="../assets/img/bgtop.jpg" title="走进唐汉隆" />
     <div class="section" v-loading="loading">
       <div class="section-content">
         <div class="content-summary">
@@ -8,15 +8,14 @@
             <p class="title">公司简介</p>
             <p class="eTitle">ABOUT US</p>
             <p class="content">
-              上海科建工程管理股份有限公司成立于2012年9月，注册资金500万。公司前身上海科建工程管理有限公司，
-              是一家从事专业工程技术服务及工程项目管理的企业。公司于2017年11月通过国家高新技术企业认定，
-              目前工程管理软件研发团队10人，包括硕士和研究生在内，平均年龄在35岁。公司自主研发工程项目管理
-              标准化+互联网协同工作系统平台，此软件广泛应用于工程项目管理过程，实现全覆盖检查、全过程控制、全方位协调的目标。
-              目前公司业务范围涉及上海、广东等多地，合作的单位有上海同济工程项目管理咨询有限公司、
-              上海华银日用品有限公司、中科建设开发总公司、广东怡轩房地产开发有限公司等多家知名企业。 立人立己、达人达己！公司一直秉承“
-              帮助施工单位解决技术问题、帮助业主解决协调问题 ”的管理理念，上海科建工程管理股份有限公司不断在工程项目管理领域开拓创新，
-              通过不断完善工程项目管理标准化+互联网协同工作系统平台，实现每项工程“无重大安全事故、无重大返工、工程施工材料无伪劣产品、
-              工程管理留下痕迹、施工过程可追溯”五大管理目标。
+              江苏唐汉隆智能科技有限公司由创始人孙同海于2020-11-18在扬州市广陵区市场监督管理局注册成立，
+			  主要经营许可项目：技术进出口；货物进出口（依法须经批准的项目，经相关部门批准后方可开展经营
+			  活动，具体经营项目以审批结果为准）一般项目：技术服务、技术开发、技术咨询、技术交流、技术转
+			  让、技术推广；软件开发；五金产品批发；电气设备销售；智能仪器仪表销售；电线、电缆经营；计算
+			  机软硬件及辅助设备批发；计算机软硬件及辅助设备零售；电子产品销售；通信设备销售；通讯设备销
+			  售；工业自动控制系统装置制造；工业自动控制系统装置销售；智能控制系统集成；普通机械设备安装
+			  服务；工程管理服务；信息系统运行维护服务；信息系统集成服务（除依法须经批准的项目外，凭营业
+			  执照依法自主开展经营活动），期待与您合作。
             </p>
           </div>
           <div class="summary-right">
@@ -58,7 +57,7 @@
           </div>
         </div>
 
-        <div class="content-culture">
+        <div class="content-culture" style="display: none;">
           <h3>企业文化</h3>
           <h3>CULTURE</h3>
           <p>我们只专注一件事情——工程项目管理</p>
@@ -95,9 +94,9 @@
             <h3>团队风采</h3>
             <p>TEAM</p>
           </div>
-          <el-carousel :interval="4000" type="card">
+          <el-carousel :interval="3000" type="card">
             <el-carousel-item v-for="(team,index) in teamItem" :key="index">
-              <div class="swiper-img" v-lazy:background-image="imgserver + team.Img"></div>
+              <div class="swiper-img" v-lazy:background-image="require(`@/assets/team/${team}`)"></div>
             </el-carousel-item>
           </el-carousel>
         </div>
@@ -107,8 +106,9 @@
             <h3>合作伙伴</h3>
             <p>RARTNERS</p>
             <ul class="partner-img">
-              <li v-for="(partner,i) in partnerImg" :key="i">
-                <img v-lazy="imgserver+partner.Img" alt />
+              <li v-for="(item,index) in partnerImg" :key="index">
+                <!-- <img v-lazy="partner.Img" alt /> -->
+                <img :src="require(`@/assets/partner/${item}`)" alt />
               </li>
             </ul>
           </div>
@@ -131,9 +131,9 @@ export default {
     return {
       loading: true,
       honorList: [],
-      partnerImg: [],
+      partnerImg: ["p01.jpg","p02.jpg","p03.jpg"],
       courseList: [],
-      teamItem: [],
+      teamItem: ["t01.jpeg","t02.jpeg","t03.jpg"],
       swiperOption: {
         navigation: {
           nextEl: ".swiper-button-next",
@@ -157,8 +157,8 @@ export default {
         this.$http.spread(
           (responseHonor, responseEnterprise, responseTeam, responseCourse) => {
             this.honorList = responseHonor.data;
-            this.partnerImg = responseEnterprise.data;
-            this.teamItem = responseTeam.data;
+            // this.partnerImg = responseEnterprise.data;
+            // this.teamItem = responseTeam.data;
 
             var groupCount = Math.ceil(responseCourse.data.length / 2);
             window.console.log(groupCount);
@@ -243,6 +243,7 @@ export default {
 
       //发展历程
       .content-course {
+		  display: none;
         padding: 50px 0;
         .course-time {
           width: 1000px;

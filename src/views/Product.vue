@@ -171,7 +171,7 @@ export default {
 }
 
 .product-content {
-  width: 1240px;
+  width: 1200px;
   margin: 0 auto;
   background-color: #fff;
 }
